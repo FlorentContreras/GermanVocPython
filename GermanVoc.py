@@ -3,5 +3,10 @@
 
 # Ce fichier est le lancement du jeu de vocabulaire Allemand
 
-from donnees/mots.py import *
+import sys
+sys.path.append('./donnees')		# Permet d'ajouter le répertoire ./donnees pour que py trouve les chemins
+
+from mots import *
+
+print(mots)
 
