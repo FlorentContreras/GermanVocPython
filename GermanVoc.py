@@ -7,6 +7,7 @@ import sys
 sys.path.append('./donnees')		# Permet d'ajouter le répertoire ./donnees pour que py trouve les chemins
 
 from mots import *
+from fonctions import *
 
-print(mots)
-
+#print(mots)
+#HelloWord()
