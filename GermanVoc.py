@@ -11,4 +11,5 @@ from fonctions import *
 
 
 melangeLaListe(mots)
-print(mots)
+
+demandeDeMot(mots)
