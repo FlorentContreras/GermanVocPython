@@ -9,7 +9,4 @@ sys.path.append('./donnees')		# Permet d'ajouter le répertoire ./donnees pour q
 from mots import *
 from fonctions import *
 
-
-melangeLaListe(mots)
-
-demandeDeMot(mots)
+demandeDeMots(mots)
