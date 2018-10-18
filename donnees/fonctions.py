@@ -13,7 +13,14 @@ def demandeDeMots(mots):
     
     melangeLaListe(mots)        # Permet de mélanger la liste des mots
     motsAjouer = ChoixMode(mots)
-    DemandeMot(motsAjouer)
+
+    print("""
+    Raccourcis : 
+        q : quitter
+        ? : solution
+""")
+
+    DemandeMotAllFr(motsAjouer)
 
 
 
@@ -42,36 +49,58 @@ def ChoixMode(mots):
     return listeSelectionnee
 
 
-def DemandeMot(mots):
+def DemandeMotFrAll(mots):
     """ Cette fonction propose un mot francais et attend la traduction allemande
         Les commande s et q permettent d'afficher la solution ou de quitter"""
     
-    print("""
-Raccourcis : 
-    q : quitter
-    s : solution
-""")
-
     fin = False
     i = 0
 
+    print("Entrer la traduction du mot : ")
+
     while not fin and i < len(mots) :
-        trad = input("Entrer la traduction du mot " + mots[i]["motFr1"] + " : ")
+
+        trad = input(mots[i]["motFr1"] + " : ")
 
         if trad.lower() == "q":     # permet de quitter
-            print(mots[i]["motAll1"])
+            print(mots[i]["motFr1"] + " : " + mots[i]["motAll1"])
             fin = True
 
-        elif trad.lower() == "s":   # permet d'afficher la solution
-            print(mots[i]["motAll1"])
+        elif trad.lower() == "?":   # permet d'afficher la solution
+            print(mots[i]["motFr1"] + " : " + mots[i]["motAll1"])
             i += 1
 
         elif trad == mots[i]["motAll1"]: 
-            print("Bravo !!")
             i += 1
 
         else:
-            print("Réssayer !!")
+            print("Réessayer !!")
 
         
 
+def DemandeMotAllFr(mots):
+    """ Cette fonction propose un mot francais et attend la traduction allemande
+        Les commande s et q permettent d'afficher la solution ou de quitter"""
+    
+    fin = False
+    i = 0
+
+    print("Entrer la traduction du mot : ")
+
+    while not fin and i < len(mots) :
+
+        trad = input("    " + mots[i]["motAll1"] + " : ")
+
+        if trad.lower() == "q":     # permet de quitter
+            print("    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            fin = True
+
+        elif trad.lower() == "?":   # permet d'afficher la solution
+            print("    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            i += 1
+
+        elif trad == mots[i]["motFr1"]: 
+            i += 1
+
+        else:
+            print("Réessayer !!")
