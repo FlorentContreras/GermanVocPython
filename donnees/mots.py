@@ -193,7 +193,7 @@ mots = [
 {"motFr1": "sûrement", "motAll1" : "sicher"}, 
 {"motFr1": "toujours", "motAll1" : "immer"}, 
 {"motFr1": "ponctuel", "motAll1" : "pünktlich"}, 
-{"motFr1": "bureau", "motAll1" : "Büro"}, 
+{"motFr1": "bureau", "motAll1" : "Büro", "typ" : "nom"}, 
 {"motFr1": "aller ", "motAll1" : "gehen", "typ": "verbe"}, 
 {"motFr1": "pardon", "motAll1" : "entschuldigung"}, 
 {"motFr1": "téléphone", "motAll1" : "Telefon", "typ": "nom"},  #das
