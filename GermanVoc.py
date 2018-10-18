@@ -1,5 +1,6 @@
 #!/usr/bin/python3.6
-# -*-coding:utf-8-*
+#coding: utf8 
+
 
 # Ce fichier est le lancement du jeu de vocabulaire Allemand
 
@@ -10,3 +11,9 @@ from mots import *
 from fonctions import *
 
 demandeDeMots(mots)
+
+#!/usr/bin/python3.6
+# -*-coding:utf-8-*
+
+#!/usr/bin/env python
+#coding: utf8 
