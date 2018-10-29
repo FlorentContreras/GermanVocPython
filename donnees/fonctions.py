@@ -3,11 +3,6 @@
 import random
 
 
-def melangeLaListe(liste):
-    """ Prend une liste et la mélange """
-    random.shuffle(liste)
-
-
 def demandeDeMots(mots):
     """ Propose un mot francais et attend son équivalent allemand"""
     
@@ -20,8 +15,22 @@ def demandeDeMots(mots):
         ? : solution
 """)
 
-    DemandeMotAllFr(motsAjouer)
+    print("Que voulez-vous faire ? ")
+    choixMenu = input("""
+ A : traduire des mots Francais vers l'Allemand. 
+ F : traduire des mots Allemand vers l'Francais. 
+""")
+    if choixMenu.lower() == "a":
+        DemandeMotFrAll(motsAjouer)
+    elif choixMenu.lower() == "f":
+        DemandeMotAllFr(motsAjouer)
+    else:
+        print("Choix invalide !")
 
+
+def melangeLaListe(liste):
+    """ Prend une liste et la mélange """
+    random.shuffle(liste)
 
 
 def ChoixMode(mots):
@@ -104,3 +113,5 @@ def DemandeMotAllFr(mots):
 
         else:
             print("Réessayer !!")
+
+            
