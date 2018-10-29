@@ -16,16 +16,23 @@ def demandeDeMots(mots):
 """)
 
     print("Que voulez-vous faire ? ")
-    choixMenu = input("""
+
+    choixMenu = ""
+    choixMenuValide = 0
+
+    while choixMenuValide == 0:
+        choixMenu = input("""
  A : traduire des mots Francais vers l'Allemand. 
  F : traduire des mots Allemand vers l'Francais. 
-""")
-    if choixMenu.lower() == "a":
-        DemandeMot(motsAjouer, "motFr1", "motAll1")
-    elif choixMenu.lower() == "f":
-        DemandeMot(motsAjouer, "motAll1", "motFr1")
-    else:
-        print("Choix invalide !")
+ """)
+        if choixMenu.lower() == "a":
+            DemandeMot(motsAjouer, "motFr1", "motAll1")
+            choixMenuValide = 1
+        elif choixMenu.lower() == "f":
+            DemandeMot(motsAjouer, "motAll1", "motFr1")
+            choixMenuValide = 1
+        else:
+            print("Choix invalide !")
 
 
 def melangeLaListe(liste):
@@ -61,7 +68,8 @@ def ChoixMode(mots):
 def DemandeMot(mots, motMontre, motCache):
     """ Cette fonction propose un mot "motMontre" et attend la traduction "motCache"
         Les commande s et q permettent d'afficher la solution ou de quitter 
-        Cette fonction est valable pour les traduction dans les deux sens """
+        Cette fonction est valable pour les traduction dans les deux sens 
+        Un compteur de mot s'affiche en début de proposition """
     
     fin = False
     i = 0
