@@ -23,13 +23,13 @@ def demandeDeMots(mots):
     while choixMenuValide == 0:
         choixMenu = input("""
  A : traduire des mots Francais vers l'Allemand. 
- F : traduire des mots Allemand vers l'Francais. 
+ F : traduire des mots Allemand vers le Francais. 
  """)
         if choixMenu.lower() == "a":
-            DemandeMot(motsAjouer, "motFr1", "motAll1")
+            DemandeMotFrAll(motsAjouer)
             choixMenuValide = 1
         elif choixMenu.lower() == "f":
-            DemandeMot(motsAjouer, "motAll1", "motFr1")
+            DemandeMotAllFr(motsAjouer, "motAll1", "motFr1")
             choixMenuValide = 1
         else:
             print("Choix invalide !")
@@ -65,8 +65,8 @@ def ChoixMode(mots):
     return listeSelectionnee
 
 
-def DemandeMot(mots, motMontre, motCache):
-    """ Cette fonction propose un mot "motMontre" et attend la traduction "motCache"
+def DemandeMotFrAll(mots):
+    """ Cette fonction propose un mot "motFr1" et attend la traduction "motAll1"
         Les commande s et q permettent d'afficher la solution ou de quitter 
         Cette fonction est valable pour les traduction dans les deux sens 
         Un compteur de mot s'affiche en début de proposition """
@@ -78,18 +78,58 @@ def DemandeMot(mots, motMontre, motCache):
 
     while not fin and i < len(mots) :
 
-        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : ")
+        # On va regarder s'il existe un deuxième mot francaise. 
+        # Si c'est le cas, on va choisir l'un des deux. 
+        try:
+            a = mots[i]["motFr2"]
+            motFr = random.choice(["motFr1", "motFr2"])
+        except :
+            motFr = "motFr1"
+
+        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : ")
 
         if trad.lower() == "q":     # permet de quitter
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : " + mots[i][motCache])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
             fin = True
 
         elif trad.lower() == "?":   # permet d'afficher la solution
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : " + mots[i][motCache])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
             i += 1
 
-        elif trad == mots[i][motCache]: 
+        elif trad == mots[i]["motAll1"]: 
             i += 1
 
         else:
             print("Réessayer !!")
+
+
+
+def DemandeMotAllFr(mots):
+    """ Cette fonction propose un mot "motAll1" et attend la traduction "motFr1"
+        Les commande s et q permettent d'afficher la solution ou de quitter 
+        Cette fonction est valable pour les traduction dans les deux sens 
+        Un compteur de mot s'affiche en début de proposition """
+    
+    fin = False
+    i = 0
+
+    print("Entrer la traduction du mot : ")
+
+    while not fin and i < len(mots) :
+
+        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : ")
+
+        if trad.lower() == "q":     # permet de quitter
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            fin = True
+
+        elif trad.lower() == "?":   # permet d'afficher la solution
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            i += 1
+
+        elif trad == mots[i]["motFr1"]: 
+            i += 1
+
+        else:
+            print("Réessayer !!")
+

@@ -1,6 +1,9 @@
 # Fichier de données 
 
-mots = [
+mots = [{"motFr1": "bien sûr", "motAll1" : "klar", "motAll2" : "natürlich"}, 
+{"motFr1": "que", "motFr2" : "quoi", "motAll1" : "was"},  ]
+
+_mots = [
 {"motFr1": "exercice", "motAll1" : "Übung", "typ": "nom"}, 
 {"motFr1": "premiere", "motAll1" : "erste", "typ": ""}, 
 {"motFr1": "jour", "motAll1" : "Tag", "typ": "nom"},
@@ -38,7 +41,7 @@ mots = [
 {"motFr1": "très", "motAll1" : "sehr"}, 
 {"motFr1": "joli", "motAll1" : "schön"}, 
 {"motFr1": "petit déjeuner", "motAll1" : "Frühstück", "typ": "nom"},    #das
-{"motFr1": "que", "motAll1" : "was"},                       #quoi
+{"motFr1": "que", "motFr2" : "quoi", "motAll1" : "was"},                       
 {"motFr1": "s'il vous plaît", "motAll1" : "bitte"}, 
 {"motFr1": "avec", "motAll1" : "mit"}, 
 {"motFr1": "œuf", "motAll1" : "Ei", "typ": "nom"},          #das
@@ -84,7 +87,7 @@ mots = [
 {"motFr1": "dormir", "motAll1" : "schlafen", "typ": "verbe"},  #schläfst schläft
 {"motFr1": "humain", "motAll1" : "Mensch", "typ": "nom"},  #der
 {"motFr1": "nuit", "motAll1" : "Nacht"}, 
-{"motFr1": "continuer à compter", "motAll1" : "weiterzälhen", "typ": "verb"}, 
+{"motFr1": "continuer à compter", "motAll1" : "weiterzälhen", "typ": "verbe"}, 
 {"motFr1": "weiter", "motAll1" : "plus loin"}, 
 {"motFr1": "passer", "motAll1" : "vergehen", "typ": "verbe"}, 
 {"motFr1": "aller en train", "motAll1" : "fahren", "typ": "verbe"},    #fährst fährt
@@ -166,7 +169,7 @@ mots = [
 {"motFr1": "fois", "motAll1" : "mal"}, 
 {"motFr1": "zut", "motAll1" : "mist"}, 
 {"motFr1": "pas", "motAll1" : "kein"}, 
-{"motFr1": "bien sûr", "motAll1" : "klar"},                    # natürlich
+{"motFr1": "bien sûr", "motAll1" : "klar", "motAll1" : "natürlich"}, 
 {"motFr1": "assez", "motAll1" : "genug"}, 
 {"motFr1": "aimer bien", "motAll1" : "mögen"}, 
 {"motFr1": "cafetière", "motAll1" : "Kaffeekanne", "typ": "nom"},  #Kanne die
