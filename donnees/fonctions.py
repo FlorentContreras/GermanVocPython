@@ -167,11 +167,23 @@ def DemandeMotAllFr(mots):
         # Quitter
         if trad.lower() == "q":     # permet de quitter
             print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
+
+            try:
+                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr2"])
+            except :
+                pass
+
             fin = True
 
         # Demander la traduction
         elif trad.lower() == "?":   # permet d'afficher la solution
             print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
+
+            try:
+                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr2"])
+            except :
+                pass
+                
             i += 1
 
         # Traduction correcte
