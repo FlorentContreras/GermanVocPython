@@ -29,7 +29,7 @@ def demandeDeMots(mots):
             DemandeMotFrAll(motsAjouer)
             choixMenuValide = 1
         elif choixMenu.lower() == "f":
-            DemandeMotAllFr(motsAjouer, "motAll1", "motFr1")
+            DemandeMotAllFr(motsAjouer)
             choixMenuValide = 1
         else:
             print("Choix invalide !")
@@ -134,7 +134,7 @@ def DemandeMotFrAll(mots):
 
                 if doubleTraduction == [1, 1]:
                     i +=1
-                    
+
             except:
                 print("Réessayer !!")
 
@@ -153,19 +153,39 @@ def DemandeMotAllFr(mots):
 
     while not fin and i < len(mots) :
 
-        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : ")
+        # On va regarder s'il existe un deuxième mot allemand. 
+        # Si c'est le cas, on va choisir l'un des deux. 
+        try:
+            a = mots[i]["motAll2"]
+            motAll = random.choice(["motAll1", "motAll2"])
+        except :
+            motAll = "motAll1"
 
+        # Demande de la traduction 
+        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : ")
+        
+        # Quitter
         if trad.lower() == "q":     # permet de quitter
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
             fin = True
 
+        # Demander la traduction
         elif trad.lower() == "?":   # permet d'afficher la solution
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i]["motAll1"] + " : " + mots[i]["motFr1"])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
             i += 1
 
+        # Traduction correcte
         elif trad == mots[i]["motFr1"]: 
             i += 1
 
+        # Mauvaise traduction
         else:
-            print("Réessayer !!")
+            try:
+                if trad == mots[i]["motFr2"]:
+                    i +=1
+                else:
+                    print("Réessayer !!")
+                    
+            except:
+                print("Réessayer !!")
 
