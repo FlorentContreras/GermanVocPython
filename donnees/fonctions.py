@@ -70,14 +70,14 @@ def DemandeMot(mots, motMontre, motCache):
 
     while not fin and i < len(mots) :
 
-        trad = input("    " + mots[i][motMontre] + " : ")
+        trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : ")
 
         if trad.lower() == "q":     # permet de quitter
-            print("    " + mots[i][motMontre] + " : " + mots[i][motCache])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : " + mots[i][motCache])
             fin = True
 
         elif trad.lower() == "?":   # permet d'afficher la solution
-            print("    " + mots[i][motMontre] + " : " + mots[i][motCache])
+            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motMontre] + " : " + mots[i][motCache])
             i += 1
 
         elif trad == mots[i][motCache]: 
