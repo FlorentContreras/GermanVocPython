@@ -73,6 +73,7 @@ def DemandeMotFrAll(mots):
     
     fin = False
     i = 0
+    doubleTraduction = [0, 0]
 
     print("Entrer la traduction du mot : ")
 
@@ -86,21 +87,56 @@ def DemandeMotFrAll(mots):
         except :
             motFr = "motFr1"
 
+        # Demande de la traduction 
         trad = input(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : ")
 
+        # Quitter
         if trad.lower() == "q":     # permet de quitter
             print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
+
+            try:
+                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll2"])
+            except :
+                pass
+
             fin = True
 
+        # Demander la traduction
         elif trad.lower() == "?":   # permet d'afficher la solution
             print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
+
+            try:
+                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll2"])
+            except :
+                pass
+
             i += 1
 
+        # Traduction correcte
         elif trad == mots[i]["motAll1"]: 
-            i += 1
 
+            try: 
+                mots[i]["motAll2"]
+                doubleTraduction[0] = 1
+            except:
+                i += 1
+
+            if doubleTraduction == [1, 1]:
+                i +=1
+
+        # Mauvaise traduction
         else:
-            print("Réessayer !!")
+            try:
+                if trad == mots[i]["motAll2"]:
+                    doubleTraduction[1] = 1
+                else:
+                    print("Réessayer !!")
+
+                if doubleTraduction == [1, 1]:
+                    i +=1
+                    
+            except:
+                print("Réessayer !!")
 
 
 
