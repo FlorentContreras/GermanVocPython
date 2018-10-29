@@ -3,7 +3,7 @@
 mots = [{"motFr1": "bien sûr", "motAll1" : "klar", "motAll2" : "natürlich"}, 
 {"motFr1": "que", "motFr2" : "quoi", "motAll1" : "was"},  ]
 
-_mots = [
+mots = [
 {"motFr1": "exercice", "motAll1" : "Übung", "typ": "nom"}, 
 {"motFr1": "premiere", "motAll1" : "erste", "typ": ""}, 
 {"motFr1": "jour", "motAll1" : "Tag", "typ": "nom"},
