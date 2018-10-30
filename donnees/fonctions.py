@@ -123,6 +123,7 @@ def DemandeMotFrAll(mots):
 
             if doubleTraduction == [1, 1]:
                 i +=1
+                doubleTraduction = [0, 0]
 
         # Mauvaise traduction
         else:
@@ -134,6 +135,7 @@ def DemandeMotFrAll(mots):
 
                 if doubleTraduction == [1, 1]:
                     i +=1
+                    doubleTraduction = [0, 0]
 
             except:
                 print("Réessayer !!")
