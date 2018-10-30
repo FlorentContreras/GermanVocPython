@@ -111,6 +111,7 @@ def DemandeMotFrAll(mots):
                 pass
 
             i += 1
+            doubleTraduction = [0, 0]
 
         # Traduction correcte
         elif trad == mots[i]["motAll1"]: 
