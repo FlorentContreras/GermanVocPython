@@ -91,24 +91,12 @@ def DemandeMotFrAll(mots):
 
         # Quitter
         if trad.lower() == "q":
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
-
-            try:
-                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll2"])
-            except :
-                pass
-
+            traductionAllemand(mots, motFr, i)
             fin = True
 
         # Demander la traduction
         elif trad.lower() == "?":
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
-
-            try:
-                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll2"])
-            except :
-                pass
-
+            traductionAllemand(mots, motFr, i)
             i += 1
             doubleTraduction = [0, 0]
 
@@ -167,24 +155,12 @@ def DemandeMotAllFr(mots):
         
         # Quitter
         if trad.lower() == "q":
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
-
-            try:
-                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr2"])
-            except :
-                pass
-
+            traductionFrancais(mots, motAll, i)
             fin = True
 
         # Demander la traduction
         elif trad.lower() == "?":
-            print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
-
-            try:
-                print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr2"])
-            except :
-                pass
-                
+            traductionFrancais(mots, motAll, i)            
             i += 1
 
         # Traduction correcte
@@ -202,3 +178,22 @@ def DemandeMotAllFr(mots):
             except:
                 print("Réessayer !!")
 
+
+def traductionAllemand(mots, motFr, i):
+    """ """
+
+    print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll1"])
+    try:
+        print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motFr] + " : " + mots[i]["motAll2"])
+    except :
+        pass
+
+
+def traductionFrancais(mots, motAll, i):
+    """ """
+
+    print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr1"])
+    try:
+        print(str(i+1) + "/" + str(len(mots)) + "    " + mots[i][motAll] + " : " + mots[i]["motFr2"])
+    except :
+        pass
