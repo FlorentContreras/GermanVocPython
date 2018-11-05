@@ -68,7 +68,9 @@ def ChoixMode(mots):
 def DemandeMotFrAll(mots):
     """ Cette fonction propose un mot "motFr1" et attend la traduction "motAll1"
         Les commande s et q permettent d'afficher la solution ou de quitter 
-        Un compteur de mot s'affiche en début de proposition """
+        Un compteur de mot s'affiche en début de proposition 
+        Dans le cas où il y a 2 mots français (motFr2), le choix est afficher alléatoirement
+        Dans le cas d'une autre traduction possible (motAll2), les 2 traductions sont demandée """
     
     fin = False
     i = 0
@@ -78,7 +80,7 @@ def DemandeMotFrAll(mots):
 
     while not fin and i < len(mots) :
 
-        # On va regarder s'il existe un deuxième mot francaise. 
+        # On va regarder s'il existe un deuxième mot francais. 
         # Si c'est le cas, on va choisir l'un des deux. 
         try:
             a = mots[i]["motFr2"]
@@ -133,7 +135,8 @@ def DemandeMotFrAll(mots):
 def DemandeMotAllFr(mots):
     """ Cette fonction propose un mot "motAll1" et attend la traduction "motFr1"
         Les commande s et q permettent d'afficher la solution ou de quitter 
-        Un compteur de mot s'affiche en début de proposition """
+        Un compteur de mot s'affiche en début de proposition 
+        Dans le cas où il y a 2 mots français (motAll2), le choix est afficher alléatoirement """
     
     fin = False
     i = 0
